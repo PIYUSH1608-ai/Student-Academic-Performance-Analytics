@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="static/charts/IIT BHILAI Logo.png" alt="Logo" />
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="/sign_in_student">Sign in(Student)</a>
+            <a href="/sign_in_prof">Sign in(Prof)</a>
+        </nav>
+    </header>
+    <h1 style="color: #333;text-align: center;
+    margin-top: 100px;">Update Data Student Roll: {{ roll }} </h1>
+    <form action="/student/{{ email }}/{{ roll }}" method="post" style="width: 350px; margin: 20px auto; text-align: center;">
+        <div class="mb-3">
+            <label for="Attendance" class="form-label">Attendance</label><input type="number" class="form-control" name="Attendance" id="Attendance">
+            <label for="Project" class="form-label">Project</label><input type="number" class="form-control" name="Project" id="Project">
+            <label for="Assignment" class="form-label">Assignment</label><input type="number" class="form-control" name="Assignment" id="Assignment">
+            <label for="Endsem" class="form-label">Endsem</label><input type="number" class="form-control" name="Endsem" id="Endsem">
+            <label for="Midsem" class="form-label">Midsem</label><input type="number" class="form-control" name="Midsem" id="Midsem">
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+
+</body>
+
+</html>

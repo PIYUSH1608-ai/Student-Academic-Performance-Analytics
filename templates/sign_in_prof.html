@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="static/charts/IIT BHILAI Logo.png" alt="Logo" />
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="/sign_in_student">Sign in(Student)</a>
+            <a href="/sign_in_prof">Sign in(Prof)</a>
+        </nav>
+    </header>
+    <h1 style="color: #333;text-align: center;
+    margin-top: 100px;">Sign in as Professor</h1>
+    <form action="/signin_prof" method="post" style="width: 350px; margin: 80px auto; text-align: center;">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+
+</body>
+
+</html>

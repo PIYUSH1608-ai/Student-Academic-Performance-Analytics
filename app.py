@@ -5,8 +5,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 
-Professors = "backend/Professors.csv"
-Registered_Students = "backend/Registered_students.csv"
+Professors = "database/Professors.csv"
+Registered_Students = "database/Registered_students.csv"
 app = Flask(__name__)
 All_Prof=["MahavirSharma@iitbhilai.ac.in","AvijitPal@iitbhilai.ac.in","GaganRaj@iitbhilai.ac.in"]
 total_scoring_area=["Project","Assignment","Midsem","Endsem"]
@@ -71,7 +71,7 @@ def Prof_login():
     req_row = row_.iloc[0].to_dict()
     if(req_row['Password']!=password):
         return redirect('/sign_in_prof')
-    csv_path = f"backend/{email}.csv"
+    csv_path = f"database/{email}.csv"
     if not os.path.exists(csv_path):
         return f"No data found for {email}"
 
@@ -107,7 +107,7 @@ def Student_login():
     Name=None
 
     for i in range(0,len(All_Prof)):
-        df = pd.read_csv(f"backend/{All_Prof[i]}.csv")
+        df = pd.read_csv(f"database/{All_Prof[i]}.csv")
         row = df[df["Roll"] == Roll]
         if row.empty:
             continue
@@ -140,7 +140,7 @@ def Open_data_updation_page(email,roll):
 
 @app.route('/student/<email>/<int:roll>',methods=['post'])
 def Data_updation(email,roll):
-    csv_path = f"backend/{email}.csv"
+    csv_path = f"database/{email}.csv"
     Teacher_name=email[0:email.index('@')]
     df = pd.read_csv(csv_path)
     df.loc[df["Roll"] == roll, "Project"] = request.form['Project']

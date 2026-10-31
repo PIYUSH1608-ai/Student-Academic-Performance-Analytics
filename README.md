@@ -69,20 +69,34 @@ Student-Academic-Performance-Analytics/
 ├── app.py
 ├── requirements.txt
 ├── README.md
-├── backend/
+│
+├── database/
+│   ├── Professors.csv
+│   ├── Registered_students.csv
+│   └── [Subject-wise academic records]
+│
 ├── templates/
+│   ├── first_page.html
+│   ├── sign_in_prof.html
+│   ├── sign_in_student.html
+│   ├── teacher_dashboard.html
+│   ├── student_dashboard.html
+│   └── data_updation.html
+│
 └── static/
     ├── style.css
     └── charts/
 ```
 
-### Application Architecture
+## Application Architecture
 
 **Frontend:** HTML templates and CSS provide separate interfaces for students and professors.
 
 **Backend:** Flask handles HTTP requests, login verification, academic record retrieval and record updates.
 
-**Data Processing:** Pandas reads, filters and modifies academic datasets stored in CSV files.
+**Data Storage:** CSV files inside the `database/` directory store professor credentials, student registration details and subject-wise academic records.
+
+**Data Processing:** Pandas reads, filters and modifies academic datasets.
 
 **Visualization:** Matplotlib generates attendance, total marks and subject-wise performance charts.
 
@@ -155,28 +169,18 @@ http://127.0.0.1:5000/
 | `/student/<email>/<roll>/data_updation` | GET    | Academic data update form         |
 | `/student/<email>/<roll>`               | POST   | Update academic records           |
 
-## Screenshots
-
-Screenshots demonstrating the following interfaces can be found in the project:
-
-1. Homepage and navigation.
-2. Student login and dashboard.
-3. Professor login and dashboard.
-4. Attendance and total marks visualizations.
-5. Academic record update interface.
-
 ## Technical Concepts Demonstrated
 
 * Flask routing and request handling.
-* Object-oriented and functional Python programming.
-* Data processing using Pandas.
+* Python programming and modular functions.
+* Pandas-based data processing.
 * CSV-based record management.
 * Dynamic data visualization.
 * HTML template rendering using Jinja.
 * Form handling and server-side data updates.
 * Basic credential verification.
 
-## Current Limitations and Future Improvements
+## Future Improvements
 
 * Migrate CSV-based storage to SQLite or PostgreSQL.
 * Implement session-based authentication and role-based authorization.
